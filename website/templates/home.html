@@ -1,0 +1,26 @@
+{% extends "base.html" %} {% block title %}Home{% endblock %} {% block content %}
+<div class="container">
+  <table class="table table-striped table-hover" style="margin-top: 0px; color:white;">
+    <tr>
+      <th colspan="3" style="color:rgb(255, 255, 255);">Title</th>
+      <th class="clickable text-center auto-size" id="views" style="color:white;">Views </th>
+      <th class="clickable text-center auto-size" id="expiresat" style="width: 105px; color:white;">Expiration Date</th>
+      <th colspan="2" id="createdat" class="text-center" style="color:white;">Created At</th>
+      <th class="clickable text-center" id="author" style="width: 120px; color:white;">Author</th>
+    </tr>
+    <tbody>
+    {% for post in posts %}
+    <tr id={{post.id}}>
+      <td colspan="3" style="overflow: hidden; text-overflow: ellipsis;"><a href={{url_for('routes.dispost', id=post.id)}}>{{post.title}}</a></td>
+      <td style="width: 105px;" class="text-center" style="color:rgb(255, 255, 255);">{{post.views}}</td>
+      <td class="text-center" style="color:rgb(255, 255, 255); width: auto;">{{post.exipration_date}}</td>
+      <td style="width: 120px" class="text-center" style="color:rgb(255, 255, 255);">{{post.date_posted}}</td>
+      <td colspan="2" style="padding-bottom: 0; max-width: 140px; width: auto;" class="text-center"><a title={{post.username}} style="color: rgb(42, 159, 214); --darkreader-inline-color: #3fa9da;" href={{url_for('routes.user', username=post.username)}} >{{post.username}}</a></td>
+    </tr>
+  {% endfor %}
+</tbody>
+  </table>
+  
+
+  </div>
+    {% endblock %}

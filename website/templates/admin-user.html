@@ -1,0 +1,18 @@
+{% extends "base.html" %} {% block title %}{{user.username}}'s page{% endblock %} {% block content %}
+<div class="container">
+  <div class="table">
+    <div class="sidebar" style="color: white;">
+      {% if user != current_user %}
+      <button type="button" class="btn btn-primary" style="color: white; position: relative;" onClick="deletePost({{user.id}})">Ban User</button>
+      {% endif %}
+      <div class="options" style="padding-top:3px;">
+        <div class="properties">
+          <h3 style="border-color: white;">{{user.username}}</h3>
+        </div>
+    </div>
+  </div>
+  <div class="show-container">
+    <div style="background-color: rgb(88, 88, 88); color: white; width: fit-content; height: fit-content; white-space: pre-wrap;">They joined on {{user.date_joined}}</div>
+  </div>
+  </div>
+    {% endblock %}

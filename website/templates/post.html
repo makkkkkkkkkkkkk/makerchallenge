@@ -1,0 +1,18 @@
+{% extends "base.html" %} {% block title %}{{post.title}} - bashun{% endblock %} {% block content %}
+<div class="container">
+  <div class="table">
+    <div class="sidebar" style="color: white;">
+      <div class="options" style="padding-top:3px;">
+        <div class="properties">
+          <h3 style="border-color: white;">{{post.title}}</h3>
+          <h3 style="border-color: white;">Posted on {{post.date_posted}}</h3>
+          <h3 style="border-color: white;">Expires on {{post.exipration_date}}</h3>
+          <h3 style="border-color: white;">Posted by <a title={{post.username}} style="color: rgb(42, 159, 214); --darkreader-inline-color: #3fa9da;" href={{url_for('routes.user', username=post.username)}} >{{post.username}}</a></h3>
+        </div>
+    </div>
+  </div>
+  <div class="show-container">
+    <pre style="background-color: rgb(88, 88, 88); color: white; width: fit-content; height: fit-content; white-space: pre-wrap; user-select: none;">{{post.content}}</pre>
+  </div>
+  </div>
+    {% endblock %}
